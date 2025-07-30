@@ -6,7 +6,6 @@ const servertest = require('servertest')
 const fs = require('fs')
 const path = require('path')
 
-// Mock the currency module before other modules are loaded
 const mockCurrency = require('./mocks/currency')
 require.cache[require.resolve('../lib/currency')] = { exports: mockCurrency }
 
@@ -15,7 +14,6 @@ const db = require('../lib/db')
 
 const server = http.createServer(app)
 
-// Test data
 const newProjectData = {
   projectId: 10002,
   projectName: 'New Test Project',
@@ -35,7 +33,6 @@ const updatedProjectData = {
   year: 2025
 }
 
-// Setup test database before all tests
 test('Setup test database', async function (t) {
   const createTableSql = `
     CREATE TABLE IF NOT EXISTS project (
@@ -73,25 +70,15 @@ test('Setup test database', async function (t) {
 
 test('POST /api/project/budget/currency - should get project with TTD conversion', function (t) {
   const requestBody = {
-    "year": 2009,
-    "projectName": "Tostadas John Deere",
-    "currency": "TTD"
+    year: 2009,
+    projectName: 'Tostadas John Deere',
+    currency: 'TTD'
   }
-  servertest(server, '/api/project/budget/currency', { 
-    method: 'POST', 
-    encoding: 'json', 
-    body: requestBody,
-    timeout: 5000  // 5 second timeout
+  servertest(server, '/api/project/budget/currency', {
+    method: 'POST',
+    encoding: 'json',
+    body: requestBody
   }, function (err, res) {
-
-    let response = err
-    try {
-      if (!err && res.body) {
-        response = typeof res.body === 'string' ? JSON.parse(res.body) : res.body
-      }
-    } catch (e) {
-      response = `Error parsing response: ${e.message}`
-    }
     t.pass('API called successfully')
     t.end()
   })
@@ -99,38 +86,44 @@ test('POST /api/project/budget/currency - should get project with TTD conversion
 
 test('GET /api/project/budget/:id - should get a project by ID', function (t) {
   servertest(server, '/api/project/budget/321', { encoding: 'json' }, function (err, res) {
-    console.log('GET /api/project/budget/:id response:', err || res.body)
     t.pass('API called successfully')
     t.end()
   })
 })
 
 test('POST /api/project/budget - should create a new project', function (t) {
-  servertest(server, '/api/project/budget', { method: 'POST', encoding: 'json', body: newProjectData }, function (err, res) {
+  servertest(server, '/api/project/budget', {
+    method: 'POST',
+    encoding: 'json',
+    body: newProjectData
+  }, function (err, res) {
     t.pass('API called successfully')
     t.end()
   })
 })
 
 test('PUT /api/project/budget/:id - should update a project', function (t) {
-  servertest(server, '/api/project/budget/321', { method: 'PUT', encoding: 'json', body: updatedProjectData }, function (err, res) {
-    console.log('PUT /api/project/budget/:id response:', err || res.body)
+  servertest(server, '/api/project/budget/321', {
+    method: 'PUT',
+    encoding: 'json',
+    body: updatedProjectData
+  }, function (err, res) {
     t.pass('API called successfully')
     t.end()
   })
 })
 
 test('DELETE /api/project/budget/:id - should delete a project', function (t) {
-  servertest(server, '/api/project/budget/321', { method: 'DELETE', encoding: 'json' }, function (err, res) {
-    console.log('DELETE /api/project/budget/:id response:', err || res.body)
+  servertest(server, '/api/project/budget/321', {
+    method: 'DELETE',
+    encoding: 'json'
+  }, function (err, res) {
     t.pass('API called successfully')
     t.end()
   })
 })
 
-// Teardown after all tests
 test('Teardown: close server', function (t) {
-  // Give time for any pending responses to complete
   setTimeout(() => {
     server.close()
     t.pass('Server closed')

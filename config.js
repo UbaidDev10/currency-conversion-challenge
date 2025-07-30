@@ -8,6 +8,20 @@ const TTD_CONVERSION_PROJECTS = [
   'Llapingacho Instagram'
 ]
 
+// Required fields for project data
+const REQUIRED_PROJECT_FIELDS = [
+  'projectName',
+  'year',
+  'currency',
+  'initialBudgetLocal',
+  'budgetUsd',
+  'initialScheduleEstimateMonths',
+  'adjustedScheduleEstimateMonths',
+  'contingencyRate',
+  'escalationRate',
+  'finalBudgetUsd'
+]
+
 module.exports = {
   server: {
     port: process.env.PORT || 1337
@@ -21,5 +35,6 @@ module.exports = {
   currency: {
     apiKey: process.env.CURRENCY_API_KEY
   },
-  TTD_CONVERSION_PROJECTS
+  TTD_CONVERSION_PROJECTS,
+  REQUIRED_PROJECT_FIELDS
 }
