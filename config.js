@@ -1,5 +1,13 @@
 require('dotenv').config()
 
+// Projects that should be converted to TTD
+const TTD_CONVERSION_PROJECTS = [
+  'Peking roasted duck Chanel',
+  'Choucroute Cartier',
+  'Rigua Nintendo',
+  'Llapingacho Instagram'
+]
+
 module.exports = {
   server: {
     port: process.env.PORT || 1337
@@ -12,5 +20,6 @@ module.exports = {
   },
   currency: {
     apiKey: process.env.CURRENCY_API_KEY
-  }
+  },
+  TTD_CONVERSION_PROJECTS
 }
