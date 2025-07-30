@@ -1,0 +1,80 @@
+[
+  {
+    "projectId": 324,
+    "projectName": "Tostadas John Deere",
+    "year": 2009,
+    "currency": "GBP",
+    "initialBudgetLocal": "252585.00",
+    "budgetUsd": "204043.12",
+    "initialScheduleEstimateMonths": 22,
+    "adjustedScheduleEstimateMonths": 23,
+    "contingencyRate": "6.04",
+    "escalationRate": "1.32",
+    "finalBudgetUsd": "219223.37"
+  },
+  {
+    "projectId": 321,
+    "projectName": "Peking roasted duck Chanel",
+    "year": 2000,
+    "currency": "GBP",
+    "initialBudgetLocal": 767063.85,
+    "budgetUsd": 621610.48,
+    "initialScheduleEstimateMonths": 21,
+    "adjustedScheduleEstimateMonths": 19,
+    "contingencyRate": 7.14,
+    "escalationRate": 3.58,
+    "finalBudgetUsd": 689836.03
+  },
+  {
+    "projectId": 504,
+    "projectName": "Choucroute Cartier",
+    "year": 2000,
+    "currency": "GBP",
+    "initialBudgetLocal": 848895.86,
+    "budgetUsd": 720265.74,
+    "initialScheduleEstimateMonths": 23,
+    "adjustedScheduleEstimateMonths": 21,
+    "contingencyRate": 0.93,
+    "escalationRate": 2.88,
+    "finalBudgetUsd": 747900.78
+  },
+  {
+    "projectId": 184,
+    "projectName": "Rigua Nintendo",
+    "year": 2001,
+    "currency": "GBP",
+    "initialBudgetLocal": 448429.37,
+    "budgetUsd": 253943.51,
+    "initialScheduleEstimateMonths": 14,
+    "adjustedScheduleEstimateMonths": 12,
+    "contingencyRate": 5.92,
+    "escalationRate": 3.04,
+    "finalBudgetUsd": 277153.87
+  },
+  {
+    "projectId": 38,
+    "projectName": "Llapingacho Instagram",
+    "year": 2000,
+    "currency": "GBP",
+    "initialBudgetLocal": 781688.85,
+    "budgetUsd": 402319.77,
+    "initialScheduleEstimateMonths": 19,
+    "adjustedScheduleEstimateMonths": 21,
+    "contingencyRate": 3.09,
+    "escalationRate": 4.96,
+    "finalBudgetUsd": 435323.12
+  },
+  {
+    "projectId": 317,
+    "projectName": "Köfte Cartier",
+    "year": 2000,
+    "currency": "USD",
+    "initialBudgetLocal": 31388.87,
+    "budgetUsd": 27183.54,
+    "initialScheduleEstimateMonths": 23,
+    "adjustedScheduleEstimateMonths": 23,
+    "contingencyRate": 2.91,
+    "escalationRate": 1.70,
+    "finalBudgetUsd": 28450.15
+  }
+] 
