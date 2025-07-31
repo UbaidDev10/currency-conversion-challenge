@@ -185,6 +185,18 @@ setupDatabase().then(() => {
       t.end()
     })
   })
+
+  test('GET /api/api-conversion - should return prjects with TTD currency', function (t) {
+    servertest(server, '/api/api-conversion', {
+      method: 'GET',
+      encoding: 'json'
+    }, function (err, res) {
+      t.error(err, 'No error')
+      t.equal(res.statusCode, 200, 'Should return 200')
+      t.ok(res.body, 'Should return a body')
+      t.end()
+    })
+  })
 }).catch((error) => {
   console.error('Failed to setup database:', error)
   process.exit(1)
